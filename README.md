@@ -1,6 +1,6 @@
 # Dynatrace-Agents-Ansible
 
-An [Ansible](ansible.com) role for automated deployments of the [Dynatrace](bit.ly/dttrial) Agents package. 
+An [Ansible](http://www.ansible.com) role for automated deployments of the [Dynatrace](http://www.bit.ly/dttrial) Agents package. 
 
 **Note**: This role merely installs the agent package, it will not inject an agent into your application.
 
@@ -35,7 +35,7 @@ As defined in ```defaults/main.yml```:
 
 ## Additional Resources
 
-- [Slide Deck: Automated Deployments](slideshare.net/MartinEtmajer/automated-deployments-slide-share)
+- [Slide Deck: Automated Deployments](http://slideshare.net/MartinEtmajer/automated-deployments-slide-share)
 - [Slide Deck: Introduction to Automated Deployments with Ansible](http://www.slideshare.net/MartinEtmajer/introduction-to-automated-deployments-with-ansible)
 
 ## Questions?

@@ -10,7 +10,7 @@ An [Ansible](ansible.com) role for automated deployments of the [Dynatrace](bit.
 
 The role is available via:
 
-- [Ansible Galaxy](https://galaxy.ansible.com/list#/roles/)
+- [Ansible Galaxy](https://galaxy.ansible.com/list#/roles/2620)
 - [GitHub](https://github.com/Dynatrace/Dynatrace-Agents-Ansible)
 
 ## Requirements

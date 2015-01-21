@@ -1,0 +1,29 @@
+---
+- name: Copy the Dynatrace Agents installer to {{ dynatrace_agents_linux_install_dir }}
+  copy: src="{{ playbook_dir }}/roles/{{ dynatrace_agents_role_name }}/files/linux/{{ dynatrace_agents_linux_installer_file_name }}" dest="{{ dynatrace_agents_linux_install_dir }}"
+  sudo: yes
+
+- name: Install the Dynatrace Agents
+  shell: yes | java -jar {{ dynatrace_agents_linux_installer_file_name }} chdir={{ dynatrace_agents_linux_install_dir }}
+  sudo: yes
+
+- name: Gather the name of the installation directory
+  shell: find . -maxdepth 1 -name dynatrace-\* -type d -printf '%T@ %p\n' | sort -k 1nr | cut -d' ' -f2 | head -1 chdir={{ dynatrace_agents_linux_install_dir }}
+  register: dynatrace_agents_installed_version_dir
+  sudo: yes
+
+- name: Change ownership of the installation directory
+  file: path={{ dynatrace_agents_linux_install_dir }}/{{ dynatrace_agents_installed_version_dir.stdout }} owner=dynatrace group=dynatrace state=directory recurse=yes
+  sudo: yes
+
+- name: Change mode of the installation directory
+  file: path={{ dynatrace_agents_linux_install_dir }}/{{ dynatrace_agents_installed_version_dir.stdout }} mode=0700
+  sudo: yes
+
+- name: Create a symlink of the actual installation directory to {{ dynatrace_agents_linux_install_dir }}/dynatrace
+  file: src={{ dynatrace_agents_linux_install_dir }}/{{ dynatrace_agents_installed_version_dir.stdout }} dest={{ dynatrace_agents_linux_install_dir }}/dynatrace owner=dynatrace group=dynatrace mode=0700 state=link
+  sudo: yes
+
+- name: Remove the Dynatrace Agents installer
+  file: path="{{ dynatrace_agents_linux_install_dir }}/{{ dynatrace_agents_linux_installer_file_name }}" state=absent
+  sudo: yes

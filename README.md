@@ -21,17 +21,17 @@ Download the Dynatrace Agents package from [downloads.compuwareapm.com](download
 
 As defined in ```defaults/main.yml```:
 
-| Name                                         | Default              | Description |
-|----------------------------------------------|----------------------|-------------|
-| *dynatrace_agents_linux_install_dir*         | /opt                 | The Dynatrace Agents package will be installed into the directory *$dynatrace_agents_linux_install_dir*/dynatrace-*$major*-*$minor*-*$rev*, where *$major*, *$minor* and *$rev* are given by the installer. A symbolic link to the actual installation directory will be created in *$dynatrace_agents_linux_install_dir*/dynatrace. |
-| *dynatrace_agents_linux_installer_file_name* | dynatrace-agents.jar | The file name of the Dynatrace Agents installer in the role's ```files``` directory. |
-| *dynatrace_agents_role_name*                 | Dynatrace-Agents     | The actual name of this role in an [Ansible Playbook's](http://docs.ansible.com/playbooks.html) ```roles``` directory. |
+| Name                                         | Default                    | Description |
+|----------------------------------------------|----------------------------|-------------|
+| *dynatrace_agents_linux_install_dir*         | /opt                       | The Dynatrace Agents package will be installed into the directory *$dynatrace_agents_linux_install_dir*/dynatrace-*$major*-*$minor*-*$rev*, where *$major*, *$minor* and *$rev* are given by the installer. A symbolic link to the actual installation directory will be created in *$dynatrace_agents_linux_install_dir*/dynatrace. |
+| *dynatrace_agents_linux_installer_file_name* | dynatrace-agents.jar       | The file name of the Dynatrace Agents installer in the role's ```files``` directory. |
+| *dynatrace_agents_role_name*                 | dynatrace.Dynatrace-Agents | The actual name of this role in an [Ansible Playbook's](http://docs.ansible.com/playbooks.html) ```roles``` directory. |
 
 ## Example Playbook
 
 	- hosts: all
 	  roles:
-	    - { role: Dynatrace-Agents }
+	    - { role: dynatrace.Dynatrace-Agents }
 
 ## Additional Resources
 

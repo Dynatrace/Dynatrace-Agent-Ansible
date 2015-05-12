@@ -1,0 +1,5 @@
+---
+- hosts: test-kitchen
+  roles:
+  - dynatrace.Dynatrace-Agents
+  remote_user: vagrant

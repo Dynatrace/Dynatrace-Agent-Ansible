@@ -1,5 +1,5 @@
 ---
 - hosts: test-kitchen
   roles:
-  - dynatrace.Dynatrace-Agents
-  remote_user: vagrant
+  - role: dynatrace.Dynatrace-Agents
+    dynatrace_agents_linux_installer_file_url: http://10.0.2.2/dynatrace/dynatrace-agents.jar

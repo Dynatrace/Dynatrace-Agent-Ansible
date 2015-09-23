@@ -2,4 +2,4 @@
 - hosts: test-kitchen
   roles:
   - role: dynatrace.Dynatrace-Agents
-    dynatrace_agents_linux_installer_file_url: http://downloads.dynatracesaas.com/6.2/dynatrace-agent-unix.jar
+    dynatrace_agents_linux_installer_file_url: http://10.0.2.2/dynatrace/dynatrace-agent.jar

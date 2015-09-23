@@ -13,7 +13,7 @@ The role is available via:
 
 ## Requirements
 
-Download the Dynatrace Agents installer from [downloads.dynatrace.com](downloads.dynatrace.com) and place the artifact as ```dynatrace-agents.jar``` in the role's ```files/linux``` directory from where it will be picked up during the automated installation. Alternatively, you can make the Dynatrace Agents installer available at an HTTP, HTTPS or FTP resource and point the installation script to the right location, see below.
+Download the Dynatrace Agents installer from [downloads.dynatrace.com](downloads.dynatrace.com) and place the artifact as ```dynatrace-agent.jar``` in the role's ```files/linux``` directory from where it will be picked up during the automated installation. Alternatively, you can make the Dynatrace Agents installer available at an HTTP, HTTPS or FTP resource and point the installation script to the right location, see below.
 
 ## Role Variables
 

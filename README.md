@@ -8,7 +8,7 @@ This Ansible role installs and configures the Agents Package of the [Dynatrace A
 
 The role is available via:
 
-- [Ansible Galaxy](https://galaxy.ansible.com/list#/roles/2620)
+- [Ansible Galaxy](https://galaxy.ansible.com/list#/roles/5320)
 - [GitHub](https://github.com/Dynatrace/Dynatrace-Agents-Ansible)
 
 ## Description

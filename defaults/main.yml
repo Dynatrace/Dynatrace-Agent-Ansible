@@ -1,4 +1,5 @@
 ---
+dynatrace_user: dynatrace
 dynatrace_agents_linux_install_dir: /opt
 dynatrace_agents_linux_installer_file_name: dynatrace-agent.jar
 dynatrace_agents_linux_installer_file_url: http://downloads.dynatracesaas.com/6.2/dynatrace-agent-unix.jar

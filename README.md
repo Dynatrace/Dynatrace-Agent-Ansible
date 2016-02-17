@@ -1,37 +1,37 @@
-# Dynatrace-Agents-Ansible
+# Dynatrace-Agent-Ansible
 
-This Ansible role installs and configures the Agents Package of the [Dynatrace Application Monitoring](http://www.dynatrace.com/en/products/application-monitoring.html) solution.
+This Ansible role installs and configures the Agent of the [Dynatrace Application Monitoring](http://www.dynatrace.com/en/products/application-monitoring.html) solution.
 
-**Note**: this role merely makes the Dynatrace Agents available, but it does not configure your application to actually load any. See the [Dynatrace-Java-Agent-Ansible](https://github.com/dynatrace/Dynatrace-Java-Agent-Ansible) role for an example that does.
+**Note**: this role merely makes the Dynatrace Agent available, but it does not configure your application to actually load any. See the [Dynatrace-Java-Agent-Ansible](https://github.com/dynatrace/Dynatrace-Java-Agent-Ansible) role for an example that does.
 
 ## Download
 
 The role is available via:
 
 - [Ansible Galaxy](https://galaxy.ansible.com/list#/roles/5320)
-- [GitHub](https://github.com/Dynatrace/Dynatrace-Agents-Ansible)
+- [GitHub](https://github.com/Dynatrace/Dynatrace-Agent-Ansible)
 
 ## Description
 
-This role downloads and installs the most recent version of the Dynatrace Agents package from [http://downloads.dynatracesaas.com](http://downloads.dynatracesaas.com). The default download link can be overridden via the `dynatrace_agents_linux_installer_file_url` attribute. Alternatively, you can place the installer artifact as `dynatrace-agent.jar` in the role's `files` directory from where it will be picked up during the installation. Please refer to `defaults/main.yml` for a list of supported attributes.
+This role downloads and installs the most recent version of the Dynatrace Agent package from [http://downloads.dynatracesaas.com](http://downloads.dynatracesaas.com). The default download link can be overridden via the `dynatrace_agent_linux_installer_file_url` attribute. Alternatively, you can place the installer artifact as `dynatrace-agent.jar` in the role's `files` directory from where it will be picked up during the installation. Please refer to `defaults/main.yml` for a list of supported attributes.
 
 ## Role Variables
 
 As defined in ```defaults/main.yml```:
 
-| Name                                         | Default                                                         | Description |
-|----------------------------------------------|-----------------------------------------------------------------|-------------|
-| *dynatrace_agents_linux_install_dir*         | /opt                                                            | The Dynatrace Agents package will be installed into the directory *$dynatrace_agents_linux_install_dir*/dynatrace-*$major*-*$minor*-*$rev*, where *$major*, *$minor* and *$rev* are given by the installer. A symbolic link to the actual installation directory will be created in *$dynatrace_agents_linux_install_dir*/dynatrace. |
-| *dynatrace_agents_linux_installer_file_name* | dynatrace-agent.jar                                             | The file name of the Dynatrace Agents installer in the role's ```files``` directory. |
-| *dynatrace_agents_linux_installer_file_url*  | http://downloads.dynatracesaas.com/6.2/dynatrace-agent-unix.jar | A HTTP, HTTPS or FTP URL to the Dynatrace Agents installer in the form (http\|https\|ftp)://[user[:pass]]@host.domain[:port]/path. |
-| *dynatrace_agents_role_name*                 | dynatrace.Dynatrace-Agents                                      | The actual name of this role in an [Ansible Playbook's](http://docs.ansible.com/playbooks.html) ```roles``` directory. |
+| Name                                        | Default                                                         | Description |
+|---------------------------------------------|-----------------------------------------------------------------|-------------|
+| *dynatrace_agent_linux_install_dir*         | /opt                                                            | The Dynatrace Agent will be installed into the directory *$dynatrace_agent_linux_install_dir*/dynatrace-*$major*-*$minor*-*$rev*, where *$major*, *$minor* and *$rev* are given by the installer. A symbolic link to the actual installation directory will be created in *$dynatrace_agent_linux_install_dir*/dynatrace. |
+| *dynatrace_agent_linux_installer_file_name* | dynatrace-agent.jar                                             | The file name of the Dynatrace Agent installer in the role's ```files``` directory. |
+| *dynatrace_agent_linux_installer_file_url*  | http://downloads.dynatracesaas.com/6.2/dynatrace-agent-unix.jar | A HTTP, HTTPS or FTP URL to the Dynatrace Agent installer in the form (http\|https\|ftp)://[user[:pass]]@host.domain[:port]/path. |
+| *dynatrace_agent_role_name*                 | Dynatrace.Dynatrace-Agent                                       | The actual name of this role in an [Ansible Playbook's](http://docs.ansible.com/playbooks.html) ```roles``` directory. |
 
 ## Example Playbook
 
 ```
 - hosts: all
   roles:
-    - role: dynatrace.Dynatrace-Agents
+    - role: Dynatrace.Dynatrace-Agent
 ```
 
 ## Testing
@@ -76,4 +76,4 @@ Feel free to post your questions on the Dynatrace Community's [Continuous Delive
 ## License
 
 Licensed under the MIT License. See the LICENSE file for details.
-[![analytics](https://www.google-analytics.com/collect?v=1&t=pageview&_s=1&dl=https%3A%2F%2Fgithub.com%2FdynaTrace&dp=%2FDynatrace-Agents-Ansible&dt=Dynatrace-Agents-Ansible&_u=Dynatrace~&cid=github.com%2FdynaTrace&tid=UA-54510554-5&aip=1)]()
+[![analytics](https://www.google-analytics.com/collect?v=1&t=pageview&_s=1&dl=https%3A%2F%2Fgithub.com%2FdynaTrace&dp=%2FDynatrace-Agent-Ansible&dt=Dynatrace-Agent-Ansible&_u=Dynatrace~&cid=github.com%2FdynaTrace&tid=UA-54510554-5&aip=1)]()

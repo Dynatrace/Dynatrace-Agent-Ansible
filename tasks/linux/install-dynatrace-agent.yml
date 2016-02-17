@@ -1,0 +1,39 @@
+---
+- name: Create the installation directory {{ dynatrace_agent_linux_install_dir }}
+  file: path="{{ dynatrace_agent_linux_install_dir }}" state=directory
+  register: dynatrace_agent_create_install_dir_result
+  sudo: yes
+
+- name: Change ownership of the installation directory if it had to be created
+  file: path="{{ dynatrace_agent_linux_install_dir }}" owner=dynatrace group=dynatrace
+  when: dynatrace_agent_create_install_dir_result|changed
+  sudo: yes
+
+- name: Copy the Dynatrace Agent installer to {{ dynatrace_agent_linux_install_dir }}
+  copy: src="{{ playbook_dir }}/roles/{{ dynatrace_agent_role_name }}/files/linux/{{ dynatrace_agent_linux_installer_file_name }}" dest="{{ dynatrace_agent_linux_install_dir }}"
+  sudo: yes
+
+- name: Install the Dynatrace Agent
+  shell: yes | java -jar {{ dynatrace_agent_linux_installer_file_name }} chdir={{ dynatrace_agent_linux_install_dir }}
+  sudo: yes
+
+- name: Gather the name of the installation directory
+  shell: find . -maxdepth 1 -name dynatrace-\* -type d -printf '%T@ %p\n' | sort -k 1nr | cut -d' ' -f2 | head -1 chdir={{ dynatrace_agent_linux_install_dir }}
+  register: dynatrace_agent_installed_version_dir
+  sudo: yes
+
+- name: Change ownership of the installation directory
+  file: path={{ dynatrace_agent_linux_install_dir }}/{{ dynatrace_agent_installed_version_dir.stdout }} owner=dynatrace group=dynatrace state=directory recurse=yes
+  sudo: yes
+
+- name: Change mode of the installation directory
+  file: path={{ dynatrace_agent_linux_install_dir }}/{{ dynatrace_agent_installed_version_dir.stdout }} mode=0755
+  sudo: yes
+
+- name: Create a symlink of the actual installation directory to {{ dynatrace_agent_linux_install_dir }}/dynatrace
+  file: src={{ dynatrace_agent_linux_install_dir }}/{{ dynatrace_agent_installed_version_dir.stdout }} dest={{ dynatrace_agent_linux_install_dir }}/dynatrace owner=dynatrace group=dynatrace mode=0755 state=link
+  sudo: yes
+
+- name: Remove the Dynatrace Agent installer
+  file: path="{{ dynatrace_agent_linux_install_dir }}/{{ dynatrace_agent_linux_installer_file_name }}" state=absent
+  sudo: yes

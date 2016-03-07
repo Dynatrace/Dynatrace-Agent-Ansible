@@ -63,3 +63,9 @@
     path: "{{ dynatrace_agent_linux_install_dir }}/{{ dynatrace_agent_linux_installer_file_name }}"
     state: absent
   become: yes
+
+- name: Update Dynatrace NGINX symbol offsets file
+  unarchive:
+    src: linux/dtnginx_offsets.json.tar.gz
+    dest: "{{ dynatrace_agent_linux_install_dir }}/dynatrace/agent/conf"
+  become: yes

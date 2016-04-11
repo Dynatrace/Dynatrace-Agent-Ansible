@@ -13,7 +13,7 @@ The role is available via:
 
 ## Description
 
-This role downloads and installs the most recent version of the Dynatrace Agent package from [http://downloads.dynatracesaas.com](http://downloads.dynatracesaas.com). The default download link can be overridden via the `dynatrace_agent_linux_installer_file_url` attribute. Alternatively, you can place the installer artifact as `dynatrace-agent.jar` in the role's `files` directory from where it will be picked up during the installation. Please refer to `defaults/main.yml` for a list of supported attributes.
+This role downloads and installs the most recent version of the Dynatrace Agent from [http://downloads.dynatracesaas.com](http://downloads.dynatracesaas.com). Alternatively, you can place the installer artifact as `dynatrace-agent-linux-x86.jar` in the role's `files` directory from where it will be picked up during the installation. The default file name and URL can be overridden via the `dynatrace_agent_linux_installer_file_name` and `dynatrace_agent_linux_installer_file_url` attributes, respectively. Please refer to `defaults/main.yml` for a list of supported attributes.
 
 ## Role Variables
 
@@ -22,7 +22,7 @@ As defined in ```defaults/main.yml```:
 | Name                                        | Default                                                         | Description
 |---------------------------------------------|-----------------------------------------------------------------|------------
 | *dynatrace_agent_linux_install_dir*         | /opt                                                            | The Dynatrace Agent will be installed into the directory *$dynatrace_agent_linux_install_dir*/dynatrace-*$major*-*$minor*-*$rev*, where *$major*, *$minor* and *$rev* are given by the installer. A symbolic link to the actual installation directory will be created in *$dynatrace_agent_linux_install_dir*/dynatrace.
-| *dynatrace_agent_linux_installer_file_name* | dynatrace-agent.jar                                             | The file name of the Dynatrace Agent installer in the role's ```files``` directory.
+| *dynatrace_agent_linux_installer_file_name* | dynatrace-agent-unix.jar                                        | The file name of the Dynatrace Agent installer in the role's ```files``` directory.
 | *dynatrace_agent_linux_installer_file_url*  | http://downloads.dynatracesaas.com/6.3/dynatrace-agent-unix.jar | A HTTP, HTTPS or FTP URL to the Dynatrace Agent installer in the form (http\|https\|ftp)://[user[:pass]]@host.domain[:port]/path.
 | *dynatrace_agent_owner*                     | dynatrace                                                       | The system user that owns the Dynatrace installation.
 | *dynatrace_agent_group*                     | dynatrace                                                       | The system user's group that owns the Dynatrace installation.

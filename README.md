@@ -1,6 +1,6 @@
 # Dynatrace-Agent-Ansible
 
-This Ansible role installs and configures the Agent of the [Dynatrace Application Monitoring](http://www.dynatrace.com/en/products/application-monitoring.html) solution.
+This Ansible role installs and configures the Agent of the [Dynatrace AppMon](https://www.dynatrace.com/support/doc/appmon/) solution.
 
 **Note**: this role merely makes the Dynatrace Agent available, but it does not configure your application to actually load any. See the [Dynatrace-Java-Agent-Ansible](https://github.com/dynatrace/Dynatrace-Java-Agent-Ansible) role for an example that does.
 
@@ -13,7 +13,7 @@ The role is available via:
 
 ## Description
 
-This role downloads and installs the most recent version of the Dynatrace Agent from [http://downloads.dynatracesaas.com](http://downloads.dynatracesaas.com). Alternatively, you can place the installer artifact as `dynatrace-agent-linux-x86.jar` in the role's `files` directory from where it will be picked up during the installation. The default file name and URL can be overridden via the `dynatrace_agent_linux_installer_file_name` and `dynatrace_agent_linux_installer_file_url` attributes, respectively. Please refer to `defaults/main.yml` for a list of supported attributes.
+This role downloads and installs the most recent version of the Dynatrace AppMon Agent from [http://downloads.dynatracesaas.com](http://downloads.dynatracesaas.com). Alternatively, you can place the installer artifact as `dynatrace-agent-linux-x86.jar` in the role's `files` directory from where it will be picked up during the installation. The default file name and URL can be overridden via the `dynatrace_agent_linux_installer_file_name` and `dynatrace_agent_linux_installer_file_url` attributes, respectively. Please refer to `defaults/main.yml` for a list of supported attributes.
 
 ## Role Variables
 
@@ -22,8 +22,8 @@ As defined in ```defaults/main.yml```:
 | Name                                        | Default                                                         | Description
 |---------------------------------------------|-----------------------------------------------------------------|------------
 | *dynatrace_agent_linux_install_dir*         | /opt                                                            | The Dynatrace Agent will be installed into the directory *$dynatrace_agent_linux_install_dir*/dynatrace-*$major*-*$minor*-*$rev*, where *$major*, *$minor* and *$rev* are given by the installer. A symbolic link to the actual installation directory will be created in *$dynatrace_agent_linux_install_dir*/dynatrace.
-| *dynatrace_agent_linux_installer_file_name* | dynatrace-agent-7.0.0.2449-unix.jar                             | The file name of the Dynatrace Agent installer in the role's ```files``` directory.
-| *dynatrace_agent_linux_installer_file_url*  | https://files.dynatrace.com/downloads/OnPrem/dynaTrace/7.0/7.0.0.2449/dynatrace-agent-7.0.0.2449-unix.jar | A HTTP, HTTPS or FTP URL to the Dynatrace Agent installer in the form (http\|https\|ftp)://[user[:pass]]@host.domain[:port]/path.
+| *dynatrace_agent_linux_installer_file_name* | dynatrace-agent-7.0.0.2469-unix.jar                             | The file name of the Dynatrace Agent installer in the role's ```files``` directory.
+| *dynatrace_agent_linux_installer_file_url*  | https://files.dynatrace.com/downloads/OnPrem/dynaTrace/7.0/7.0.0.2469/dynatrace-agent-7.0.0.2469-unix.jar | A HTTP, HTTPS or FTP URL to the Dynatrace Agent installer in the form (http\|https\|ftp)://[user[:pass]]@host.domain[:port]/path.
 | *dynatrace_agent_owner*                     | dynatrace                                                       | The system user that owns the Dynatrace installation.
 | *dynatrace_agent_group*                     | dynatrace                                                       | The system user's group that owns the Dynatrace installation.
 | *dynatrace_agent_role_name*                 | Dynatrace.Dynatrace-Agent                                       | The actual name of this role in an [Ansible Playbook's](http://docs.ansible.com/playbooks.html) ```roles``` directory.
